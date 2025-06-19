@@ -11,16 +11,15 @@
     <section class="card p-4">
       <h2>Categories</h2>
       <ul class="hoverlist">
-        {% for tag in post.tags.all  %}
-        <li class="highlight">
+        {% for cat in categories  %}
+        <li class="{% if cat.slug == tag.slug %}highlight{% endif %} ">
 
-
-          <a href="{% url "category_view" tag.slug %}">
+          <a href="{% url "category_view" cat.slug %}">
             <img
               class="w-8 h-8 object-cover mr-2"
               src="https://img.icons8.com/small/96/null/landscape.png"
             />
-            <span class="font-bold text-sm">{{tag}}</span>
+            <span class="font-bold text-sm">{{cat}}</span>
           </a>
 
 

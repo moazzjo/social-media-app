@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post
+from .models import Post, Tag
 from bs4 import BeautifulSoup
 import requests
 from django.contrib import messages 
@@ -14,9 +14,12 @@ This is the home page of the web
 def home(request, tag=None):
     if tag:
         posts = Post.objects.filter(tags__slug=tag)
+        tag = get_object_or_404(Tag, slug=tag)
     else:
         posts= Post.objects.all()
-    return render(request, "posts/home.html", {"posts": posts})
+        
+    categories = Tag.objects.all()
+    return render(request, "posts/home.html", {"posts": posts, 'categories':categories, 'tag':tag})
 
 
 """
