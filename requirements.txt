@@ -1,3 +1,6 @@
 django 
 beautifulsoup4
 requests
+django-allauth
+django-allauth[socialaccount]
+dotenv
