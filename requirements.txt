@@ -4,3 +4,5 @@ requests
 django-allauth
 django-allauth[socialaccount]
 dotenv
+pillow
+django-cleanup

@@ -63,7 +63,7 @@
         >
           <img
             class="h-8 w-8 rounded-full object-cover"
-            src="https://pbs.twimg.com/profile_images/508601156767997952/fFTdKUf2_400x400.jpeg"
+            src="{{request.user.profile.image.url}}"
           />
           {{user.username}}
           <img
@@ -81,8 +81,8 @@
           x-transition:enter-end="opacity-100 translate-y-0 scale-100"
         >
           <ul class="hoverlist [&>li>a]:justify-end">
-            <li><a href="">My Profile</a></li>
-            <li><a href="">Edit Profile</a></li>
+            <li><a href="{% url "profile_view" %}">My Profile</a></li>
+            <li><a href="{% url "profile_edit" %}">Edit Profile</a></li>
             <li><a href="{% url "account_logout" %}">Log Out</a></li>
           </ul>
         </div>
